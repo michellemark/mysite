@@ -1,0 +1,24 @@
+branch-defaults:
+  default:
+    environment: my-site
+    group_suffix: null
+  master:
+    environment: my-site
+environment-defaults:
+  my-site:
+    branch: null
+    repository: null
+global:
+  application_name: my-site
+  branch: null
+  default_ec2_keyname: aws_my_site
+  default_platform: Python 3.6
+  default_region: us-east-1
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: eb-cli
+  repository: null
+  sc: git
+  workspace_type: Application

@@ -11,8 +11,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = False
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
-ALLOWED_HOSTS = ['.michellemark.me']
-SITE_URL = 'https://michellemark.me'
+ALLOWED_HOSTS = ['.michellemark.me', 'my-site.tvss4ihud3.us-east-1.elasticbeanstalk.com']
+# SITE_URL = 'https://michellemark.me'
 DEFAULT_FROM_EMAIL = "web-developer@michellemark.me"
 SERVER_EMAIL = DEFAULT_FROM_EMAIL
 ADMINS = [('Michelle Mark', DEFAULT_FROM_EMAIL)]
@@ -65,11 +65,11 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': os.environ.get('DB_ENGINE'),
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': os.environ.get('DB_HOST'),
-        'PORT': os.environ.get('DB_PORT'),
+        'NAME': os.environ.get('RDS_DB_NAME'),
+        'USER': os.environ.get('RDS_USERNAME'),
+        'PASSWORD': os.environ.get('RDS_PASSWORD'),
+        'HOST': os.environ.get('RDS_HOSTNAME'),
+        'PORT': os.environ.get('RDS_PORT'),
         'CONN_MAX_AGE': 600,
     }
 }
@@ -92,11 +92,6 @@ TIME_ZONE = 'America/New_York'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
-STATIC_URL = '/static/'
-STATIC_ROOT = os.environ.get("STATIC_ROOT")
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
 RECAPTCHA_PRIVATE_KEY = os.environ.get('RECAPTCHA_PRIVATE_KEY')
 RECAPTCHA_PUBLIC_KEY = os.environ.get('RECAPTCHA_PUBLIC_KEY')
 LOGGING = {
@@ -123,4 +118,8 @@ LOGGING = {
         },
     }
 }
-
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+STATIC_URL = '/static/'
+STATIC_ROOT = 'static_root'
