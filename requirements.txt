@@ -2,6 +2,7 @@ certifi==2018.4.16
 chardet==3.0.4
 Django==2.0.5
 django-recaptcha2==1.0.3
+gunicorn==19.8.1
 idna==2.6
 psycopg2-binary==2.7.4
 pytz==2018.4
