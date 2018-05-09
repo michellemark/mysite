@@ -37,14 +37,14 @@ class ContactMeView(TemplateView):
 
         if context['form'].is_valid():
             context['form'].save()
-            my_email = getattr(settings, "DEFAULT_FROM_EMAIL")
-            send_mail(
-                "New Contact Me Submission",
-                "A new contact me submission!<br><br><a href='https://michellemark.me/my-admin/'>Visit the admin</a>",
-                my_email,
-                [my_email],
-                fail_silently=False,
-            )
+            # my_email = getattr(settings, "DEFAULT_FROM_EMAIL")
+            # send_mail(
+            #     "New Contact Me Submission",
+            #     "A new contact me submission!<br><br><a href='https://michellemark.me/my-admin/'>Visit the admin</a>",
+            #     my_email,
+            #     [my_email],
+            #     fail_silently=False,
+            # )
 
             return redirect(self.success_url)
 
