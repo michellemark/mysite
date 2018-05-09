@@ -11,7 +11,15 @@
         "pk": 2,
         "model": "sites.site",
         "fields": {
-            "domain": ".michellemark.me",
+            "domain": "michellemark.me",
+            "name": "MichelleMark.me"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "sites.site",
+        "fields": {
+            "domain": "www.michellemark.me",
             "name": "MichelleMark.me"
         }
     }
