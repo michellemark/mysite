@@ -3,8 +3,9 @@
 
 Django project settings
 """
-
 import os
+from django.urls import reverse_lazy
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY')
@@ -35,7 +36,6 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.sitemaps',
     'snowpenguin.django.recaptcha2',
-    'portfolio',
     'main_pages',
 ]
 MIDDLEWARE = [

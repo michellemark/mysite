@@ -15,17 +15,22 @@
     </title>
     {% block extra_head %}{% endblock extra_head %}
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link href="{% static 'css/cover.css' %}" rel="stylesheet">
     {% if extra_css %}
         {% for css in extra_css %}
-            <link type="text/css" rel="stylesheet" href="{% static css %}" />
+            <link type="text/css" rel="stylesheet" href="{% static css %}"/>
         {% endfor %}
     {% endif %}
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-5616115-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+
+      function gtag() {
+          dataLayer.push(arguments);
+      }
+
       gtag('js', new Date());
       gtag('config', 'UA-5616115-2');
     </script>
@@ -43,11 +48,6 @@
                  href="{{ home }}">
                   Home
               </a>
-{#              {% url 'portfolio-index' as portfolioindex %}#}
-{#              <a class="nav-link {% if request.get_full_path == portfolioindex %} active{% endif %}"#}
-{#                 href="{{ portfolioindex }}">#}
-{#                  Portfolio#}
-{#              </a>#}
               {% url 'contact-form' as contactform %}
               <a class="nav-link {% if request.get_full_path == contactform %} active{% endif %}"
                  href="{{ contactform }}">
@@ -63,24 +63,45 @@
           {% block page_content %}{% endblock %}
       </main>
       <footer class="mastfoot mt-auto">
-        <div class="inner">
-          <p>
-              <a href="{% url 'contact-form'%}">Contact me</a>, for more information.
-              <a href="http://www.giac.org/certified-professional/michelle-mark/142396"
-                 rel="nofollow noopener noreferrer" target="_blank">
-                <img src="{% static 'images/gweb-badge.png' %}" alt="GIAC Certified Web Application Defender (GWEB)"
-                     class="float-right">
-            </a>
-          </p>
-        </div>
+          <div class="col-12 mb-5">
+              <a href="{% url 'contact-form' %}">Contact me</a> for more information.
+          </div>
+          <div class="col-12 mt-0 mb-5">
+              <a href="http://www.giac.org/certified-professional/michelle-mark/142396" rel="nofollow noopener noreferrer"
+                 target="_blank">
+                  Proud to be a SANS GIAC Certified Web Application Defender (GWEB)
+                  <img src="{% static 'images/gweb-badge.png' %}" alt="GIAC Certified Web Application Defender (GWEB)">
+              </a>
+          </div>
+          <div class="col-12 mt-5">
+              <h6>
+                  <em>Powered By</em>
+              </h6>
+          </div>
+          <div class="col-12">
+              <img src="{% static 'images/python-logo.png' %}" alt="Python Software Foundation Logo" class="m-1">
+              <img src="{% static 'images/django-logo-negative.png' %}" alt="Django Framework Logo" class="m-1">
+              <img src="{% static 'images/django-girls-logo-pink.png' %}" alt="Django Girls Logo - Code like a girl!" class="m-1">
+              <img src="{% static 'images/PostgreSQL_logo.png' %}" alt="PostgreSQL logo" class="m-1">
+              <img src="{% static 'images/jQuery-Logo.png' %}" alt="jQuery logo" class="m-1">
+              <img src="{% static 'images/pycharm-logo.png' %}" alt="PyCharm IDE logo" class="m-1">
+              <img src="{% static 'images/ubuntu-logo.png' %}" alt="Ubuntu logo" class="m-1">
+              <img src="{% static 'images/Git-Logo-White.png' %}" alt="Git logo" class="m-1">
+          </div>
       </footer>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>    {% if extra_javascript %}
-        {% for js in extra_javascript %}
-            <script type="text/javascript" src="{% static js %}"></script>
-        {% endfor %}
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>    {% if extra_javascript %}
+    {% for js in extra_javascript %}
+        <script type="text/javascript" src="{% static js %}"></script>
+    {% endfor %}
     {% endif %}
 </body>
 </html>
