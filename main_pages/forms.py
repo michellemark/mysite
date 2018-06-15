@@ -36,7 +36,7 @@ class PermuteForm(Form):
         # Just throw out any bad values
         permute_value = re.sub(r'\W+', '', permute_value)
 
-        if len(permute_value) == 0:
+        if len(permute_value) < self.min_len or len(permute_value) > self.max_len:
             raise ValidationError("{} to {} alphanumeric values are required.".format(str(self.min_len),
                                                                                       str(self.max_len)))
 
