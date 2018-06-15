@@ -26,7 +26,9 @@ class ContactMeForm(ModelForm):
 
 
 class PermuteForm(Form):
-    permute_value = CharField(required=True, min_length=1, max_length=6, strip=True, label="Value to Permute")
+    min_len = 1
+    max_len = 6
+    permute_value = CharField(required=True, min_length=min_len, max_length=max_len, strip=True, label="Value to Permute")
 
     def clean_permute_value(self):
         permute_value = self.cleaned_data.get('permute_value')
@@ -35,6 +37,7 @@ class PermuteForm(Form):
         permute_value = re.sub(r'\W+', '', permute_value)
 
         if len(permute_value) == 0:
-            raise ValidationError("1 to 4 alphanumeric values are required.")
+            raise ValidationError("{} to {} alphanumeric values are required.".format(str(self.min_len),
+                                                                                      str(self.max_len)))
 
         return permute_value
