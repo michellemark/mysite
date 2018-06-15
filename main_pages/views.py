@@ -64,6 +64,8 @@ class HomeView(TemplateView):
         context['extra_css'] = []
         context['extra_javascript'] = []
 
+        return context
+
 
 class PermuteView(TemplateView):
     template_name = 'permute.html'
